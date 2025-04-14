@@ -1,0 +1,14 @@
+postgres:
+  dbname: "statistics"
+  user: "app_user"
+  password: "app_password"
+  host: "localhost"
+  port: 5432
+
+mongodb:
+  user: "mongo_user"
+  password: "mongo_password"
+  host: "localhost"
+  port: 27017
+  database: "investment_analyzer"  
+  auth_source: "admin"

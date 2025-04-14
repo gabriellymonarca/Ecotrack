@@ -1,0 +1,424 @@
+:root {
+    /* Cores principais */
+    --primary-color: #168AAD;
+    --secondary-color: #333;
+    --background-color: #f5f5f5;
+    --white: #fff;
+    
+    /* Cores dos gráficos */
+    --chart-revenue: rgb(75, 192, 192);
+    --chart-expense: rgb(255, 99, 132);
+    --chart-vehicle: rgb(255, 99, 132);
+    --chart-wholesale: rgb(54, 162, 235);
+    --chart-retail: rgb(255, 205, 86);
+    
+    /* Cores de feedback */
+    --success-color: #28a745;
+    --info-color: #17a2b8;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    
+    /* Transições */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, #168AAD, #34a0a4);
+    color: white;
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #52b69a, #D9ED92);
+}
+
+header h1 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+header a {
+    color: rgba(255, 255, 255, 0.9);
+    transition: all var(--transition-fast);
+    position: relative;
+    z-index: 1;
+}
+
+header a:hover {
+    color: white;
+    text-decoration: underline !important;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 0 1.5rem;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.chart-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 0;
+    box-shadow: none;
+    transition: all var(--transition-medium);
+}
+
+.chart-container:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container canvas {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+/* Ajustes específicos para cada tipo de gráfico */
+#chartCommerceVolume,
+#chartRevenueExpense {
+    height: 400px;
+}
+
+#chartCommerceDivision {
+    height: 400px !important;
+}
+
+#chartCommerceRanking,
+#chartRevenueExpenseGrouped {
+    height: 400px;
+}
+
+.chart-title {
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+    font-size: 1rem;
+}
+
+.year-selector {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+select {
+    display: block;
+    margin: 0 auto 15px auto;
+    padding: 5px;
+}
+
+.home-link {
+    text-decoration: none;
+    color: var(--primary-color);
+    margin-top: 10px;
+    display: inline-block;
+    transition: all var(--transition-fast);
+}
+
+.home-link:hover {
+    color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .chart-container {
+        height: 300px;
+    }
+    
+    .form-select {
+        max-width: 100%;
+    }
+    
+    .d-flex.gap-3 {
+        flex-direction: column;
+        gap: 1rem !important;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    #chartCommerceDivision {
+        height: 300px !important;
+    }
+}
+
+/* Ajustes específicos para os gráficos */
+.card-body {
+    padding: 1.5rem;
+    height: auto;
+    position: relative;
+}
+
+canvas {
+    height: calc(100% - 50px) !important;
+}
+
+/* Ajustes específicos para os gráficos */
+.chart-card {
+    margin-bottom: 2.5rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    border: none;
+    position: relative;
+}
+
+.chart-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--chart-revenue), var(--chart-expense));
+    opacity: 0.7;
+}
+
+.chart-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-title {
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e9ecef;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.card-title::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--chart-revenue);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.d-flex.gap-3 {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    transition: all var(--transition-fast);
+}
+
+.d-flex.gap-3:hover {
+    background-color: #e9ecef;
+}
+
+/* Ajuste específico para gráficos com seletor de ano */
+.with-selector {
+    margin-top: 1.5rem;
+}
+
+.form-select {
+    max-width: 300px;
+    border-radius: 0.5rem;
+    border: 1px solid #ced4da;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    background-color: #fff;
+    transition: all var(--transition-fast);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    position: relative;
+}
+
+.form-select:hover {
+    border-color: #adb5bd;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-select:focus {
+    border-color: #0d6efd;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Estilo para opções desabilitadas */
+.form-select option:disabled {
+    color: #adb5bd;
+    font-style: italic;
+}
+
+/* Animações para carregamento */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.chart-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Indicador de carregamento */
+.loading-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.loading-indicator::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 10px auto;
+    border: 3px solid rgba(13, 110, 253, 0.1);
+    border-radius: 50%;
+    border-top-color: #0d6efd;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Tooltip personalizado */
+.tooltip-custom {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    z-index: 1000;
+    pointer-events: none;
+    transition: opacity var(--transition-fast);
+    opacity: 0;
+}
+
+.tooltip-custom.visible {
+    opacity: 1;
+}
+
+/* Melhorias de acessibilidade */
+:focus {
+    outline: 2px solid #0d6efd;
+    outline-offset: 2px;
+}
+
+/* Estilo para mensagens de erro */
+.error-message {
+    color: var(--danger-color);
+    background-color: rgba(220, 53, 69, 0.1);
+    border-left: 3px solid var(--danger-color);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Estilo para mensagens de sucesso */
+.success-message {
+    color: var(--success-color);
+    background-color: rgba(40, 167, 69, 0.1);
+    border-left: 3px solid var(--success-color);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Estilo para o botão de voltar ao topo */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0d6efd;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: all var(--transition-medium);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+}
+
+.back-to-top:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+} 

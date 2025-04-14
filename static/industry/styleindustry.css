@@ -1,0 +1,195 @@
+:root {
+    /* Cores dos gráficos */
+    --chart-revenue: rgb(75, 192, 192);
+    --chart-expense: rgb(255, 99, 132);
+    --chart-vehicle: rgb(255, 99, 132);
+    --primary-color: #168AAD;
+}
+
+/* Estilos para a página de Indústria */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, #168AAD, #34a0a4);
+    color: white;
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #52b69a, #D9ED92);
+}
+
+header h1 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+header a {
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 1;
+}
+
+header a:hover {
+    color: white;
+    text-decoration: underline !important;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 0 1.5rem;
+}
+
+.chart-card {
+    margin-bottom: 2.5rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+}
+
+.chart-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.chart-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.with-selector {
+    margin-top: 1.5rem;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.form-select {
+    max-width: 300px;
+    border-radius: 0.5rem;
+    border: 1px solid #ced4da;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    background-color: #fff;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-select:hover {
+    border-color: #adb5bd;
+}
+
+.form-select:focus {
+    border-color: #0d6efd;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.d-flex.gap-3 {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .chart-container {
+        height: 300px;
+    }
+    
+    .form-select {
+        max-width: 100%;
+    }
+    
+    .d-flex.gap-3 {
+        flex-direction: column;
+        gap: 1rem !important;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+}
+/* Animações para carregamento */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.chart-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Ajustes nos gráficos */
+.chart-container canvas {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+/* Melhorias na acessibilidade */
+:focus {
+    outline: 2px solid #0d6efd;
+    outline-offset: 2px;
+}
+
+/* Ajustes nos cards */
+.chart-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--chart-revenue), var(--chart-expense));
+    opacity: 0.7;
+}
+
+/* Ajustes nos títulos */
+.card-title::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #0d6efd;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
