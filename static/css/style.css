@@ -1,0 +1,145 @@
+:root {
+    /* Main colors */
+    --color-primary: #2ecc71;
+    --color-accent: #f1c40f;
+    
+    /* Text colors */
+    --color-text-light: #FAFAFA;
+    --color-text-dark: #1A1A1A;
+    
+    /* Background colors */
+    --color-bg-light: #ffffff;
+    --color-bg-dark: #121212;
+    --color-card-light: #ffffff;
+    --color-card-dark: #1e1e1e;
+    
+    /* Shadows */
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 8px 15px rgba(0, 0, 0, 0.1);
+    --shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-dark-md: 0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Base */
+body {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Titles and texts */
+.display-4 {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.lead {
+    color: var(--color-text-dark);
+    opacity: 0.8;
+}
+
+.card-title {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.card-text {
+    color: var(--color-text-dark);
+    opacity: 0.8;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 15px;
+    background-color: var(--color-card-light);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Links */
+a:hover .card {
+    border-color: var(--color-accent);
+}
+
+/* Icons */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.icon-large {
+    font-size: 3rem;
+    color: var(--color-primary);
+    transition: all 0.3s ease;
+}
+
+.hover-card:hover .icon-large {
+    color: var(--color-accent);
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2.5rem;
+    }
+
+    .lead {
+        font-size: 1.1rem;
+    }
+
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    .icon-large {
+        font-size: 2.5rem;
+    }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--color-bg-dark);
+        color: var(--color-text-light);
+    }
+
+    .lead,
+    .card-text {
+        color: var(--color-text-light);
+    }
+
+    .card {
+        background-color: var(--color-card-dark);
+        box-shadow: var(--shadow-dark);
+    }
+
+    .hover-card:hover {
+        box-shadow: var(--shadow-dark-md);
+    }
+}

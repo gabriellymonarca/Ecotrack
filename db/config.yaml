@@ -12,3 +12,4 @@ mongodb:
   port: 27017
   database: "investment_analyzer"  
   auth_source: "admin"
+  

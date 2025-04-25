@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análises de Mercado - Serviços</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/service.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('home') }}">
+                <i class="bi bi-graph-up"></i> Análises de Mercado
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('commerce') }}">
+                            <i class="bi bi-shop"></i> Comércio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('industry') }}">
+                            <i class="bi bi-building"></i> Indústria
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('service') }}">
+                            <i class="bi bi-briefcase"></i> Serviços
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4 mb-5">
+        <h1 class="text-center">Análise do Setor de Serviços</h1>
+        <p class="lead text-center">Dados e estatísticas sobre o setor de serviços brasileiro</p>
+
+        <!-- Chart 1: Service Volume (Line) -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">
+                    <i class="bi bi-graph-up"></i> Evolução do Volume de Serviços
+                </h2>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="year-selector">
+                            <label for="volumeSegmentSelect" class="form-label">Selecione o Segmento:</label>
+                            <select class="form-select" id="volumeSegmentSelect"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="year-selector">
+                            <label for="volumeYearSelect" class="form-label">Selecione o Ano:</label>
+                            <select class="form-select" id="volumeYearSelect"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="volumeChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart 2: Service Volume by Segment (Vertical Bars) -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">
+                    <i class="bi bi-bar-chart"></i> Volume de Serviços por Segmento
+                </h2>
+                <div class="year-selector">
+                    <label for="volumeRankingYearSelect" class="form-label">Selecione o Ano:</label>
+                    <select class="form-select" id="volumeRankingYearSelect"></select>
+                </div>
+                <div class="chart-container">
+                    <canvas id="volumeRankingChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart 3: Revenue by Year (Line) -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">
+                    <i class="bi bi-currency-dollar"></i> Evolução da Receita de Serviços
+                </h2>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="year-selector">
+                            <label for="revenueSegmentSelect" class="form-label">Selecione o Segmento:</label>
+                            <select class="form-select" id="revenueSegmentSelect"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="year-selector">
+                            <label for="revenueYearSelect" class="form-label">Selecione o Ano:</label>
+                            <select class="form-select" id="revenueYearSelect"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart 4: Service Revenue by Segment (Horizontal Bars) -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">
+                    <i class="bi bi-bar-chart-fill"></i> Receita de Serviços por Segmento
+                </h2>
+                <div class="year-selector">
+                    <label for="revenueRankingYearSelect" class="form-label">Selecione o Ano:</label>
+                    <select class="form-select" id="revenueRankingYearSelect"></select>
+                </div>
+                <div class="chart-container">
+                    <canvas id="revenueRankingChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 Análises de Mercado.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/service.js') }}"></script>
+    
+    <!-- Debug Script -->
+    <script>
+        // Function to check if data is being loaded correctly
+        async function checkData() {
+            try {
+                console.log('Checking API data...');
+                
+                // Check monthly volume data
+                const volumeResponse = await fetch('/api/service/volume/monthly');
+                const volumeData = await volumeResponse.json();
+                console.log('Monthly volume data:', volumeData);
+                
+                // Check volume ranking data
+                const volumeRankingResponse = await fetch('/api/service/volume/ranking');
+                const volumeRankingData = await volumeRankingResponse.json();
+                console.log('Volume ranking data:', volumeRankingData);
+                
+                // Check monthly revenue data
+                const revenueResponse = await fetch('/api/service/revenue/monthly');
+                const revenueData = await revenueResponse.json();
+                console.log('Monthly revenue data:', revenueData);
+                
+                // Check revenue ranking data
+                const revenueRankingResponse = await fetch('/api/service/revenue/ranking');
+                const revenueRankingData = await revenueRankingResponse.json();
+                console.log('Revenue ranking data:', revenueRankingData);
+                
+                console.log('Check completed. See console for details.');
+            } catch (error) {
+                console.error('Error checking data:', error);
+            }
+        }
+        
+        // Run check when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait a bit for charts to try loading first
+            setTimeout(checkData, 2000);
+        });
+    </script>
+</body>
+</html>
