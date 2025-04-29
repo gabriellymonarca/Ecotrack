@@ -1,6 +1,6 @@
 # Ecotrack
 
-Video Demo: URL HERE
+Video Demo: [I've finished Harvard's CS50 and THIS is my final project](https://youtu.be/8niTePquiFA?si=5aOR6m8DlRW4qrti)
 
 ## Description
 
