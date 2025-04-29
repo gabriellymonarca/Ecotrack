@@ -1,5 +1,5 @@
 """
-Data fetching module for the Investment Analyzer project.
+Data fetching module for the Ecotrack project.
 
 This module handles:
 - Fetching data from SIDRA API for commerce, industry, and services

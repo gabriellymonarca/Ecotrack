@@ -10,5 +10,6 @@
             "username": "postgres",
             "password": "A2b5g7xthj!"
         }
-    ]
+    ],
+    "markdown.validate.enabled": true
 }

@@ -1,5 +1,5 @@
 """
-Main execution module for the Investment Analyzer project.
+Main execution module for the Ecotrack project.
 
 This module serves as the entry point for the application, handling:
 - Initial data updates

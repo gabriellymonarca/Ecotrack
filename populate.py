@@ -1,5 +1,5 @@
 """
-Database population module for the New Investment Analyzer project.
+Database population module for the Ecotrack project.
 
 This module handles:
 - Converting fetched data into database records

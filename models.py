@@ -1,5 +1,5 @@
 """
-Data models for the Investment Analyzer project.
+Data models for the Ecotrack project.
 
 This module defines the data structures used throughout the application:
 - FetchOutput: Container for raw data fetched from external sources
@@ -10,7 +10,6 @@ Each output type has specific subclasses for commerce, industry, and service dat
 """
 
 import pandas as pd
-from typing import Optional
 from dataclasses import dataclass
 
 # Fetch output classes

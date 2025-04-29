@@ -1,5 +1,5 @@
 """
-Data aggregation module for the New Investment Analyzer project.
+Data aggregation module for the Ecotrack project.
 
 The module provides functions to:
 - Aggregate commerce data (volume, division, ranking, revenue and expenses)

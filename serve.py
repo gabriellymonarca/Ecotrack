@@ -1,5 +1,5 @@
 """
-Web server module for the New Investment Analyzer project.
+Web server module for the Ecotrack project.
 
 This module provides:
 - Flask web server setup and configuration
@@ -8,10 +8,8 @@ This module provides:
 - Data initialization and server startup functionality
 """
 import logging
-import models
 
 from db.db import get_mongo_db
-from bson import ObjectId
 from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)

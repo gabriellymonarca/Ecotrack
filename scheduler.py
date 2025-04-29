@@ -1,5 +1,5 @@
 """
-Scheduler module for the Investment Analyzer project.
+Scheduler module for the Ecotrack project.
 
 This module handles:
 - Periodic data updates through a background scheduler
